@@ -25,9 +25,15 @@ One of the most exciting areas in all of data science right now is wearable comp
 ## Code does
 
 *Loads data
+
 *Loads features
+
 *Loads activities
+
 *Get mean
+
 *Get St Dev
+
 *Cook data
+
 *Merge both sets
