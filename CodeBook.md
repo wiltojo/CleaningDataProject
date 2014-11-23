@@ -43,11 +43,19 @@ One of the most exciting areas in all of data science right now is wearable comp
 *Import the necessary libraries
 
 *Load the data into the following variables
+
 **test_x - Loads the x_test.txt data table into this variable
+
 **test_y - Loads the y_test.txt data table into this variable
-**train_x - Loads the x_train.txt data table into this variable 
+
+**train_x - Loads the x_train.txt data table into this variable
+
 **train_y - Loads the y_train.txt data table into this variable
+
 **Bind the variables
+
 **As we step through the code base we are loading the labels and activities
+
 **Acquire mean and st dev
+
 **Merge data
