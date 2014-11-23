@@ -21,3 +21,13 @@ One of the most exciting areas in all of data science right now is wearable comp
 *Appropriately labels the data set with descriptive variable names.
 
 *From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject
+
+## Code does
+
+*Loads data
+*Loads features
+*Loads activities
+*Get mean
+*Get St Dev
+*Cook data
+*Merge both sets
