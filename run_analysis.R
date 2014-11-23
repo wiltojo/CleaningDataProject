@@ -20,42 +20,32 @@ features <- read.table("./UCI HAR Dataset/features.txt")[,2]
 # Mean and St Dev
 extract_features <- grepl("mean|std", features)
 
-# Work with Test Data
-# Load and cook x and y
-X_test <- read.table("./UCI HAR Dataset/test/X_test.txt")
-y_test <- read.table("./UCI HAR Dataset/test/y_test.txt")
+# Work with all data
+# Load and cook x and y for test and train
+test_x <- read.table("./UCI HAR Dataset/test/X_test.txt")
+test_y <- read.table("./UCI HAR Dataset/test/y_test.txt")
 subject_test <- read.table("./UCI HAR Dataset/test/subject_test.txt")
-
-names(X_test) = features
-
-# Mean and St Dev for each measure
-X_test = X_test[,extract_features]
-
-# Load Labels
-y_test[,2] = activity_labels[y_test[,1]]
-names(y_test) = c("Activity_ID", "Activity_Label")
-names(subject_test) = "subject"
-
-test_data <- cbind(as.data.table(subject_test), y_test, X_test)
-
-# Work with Test Data
-# Load and cook x and y
-X_train <- read.table("./UCI HAR Dataset/train/X_train.txt")
-y_train <- read.table("./UCI HAR Dataset/train/y_train.txt")
-
+train_x <- read.table("./UCI HAR Dataset/train/X_train.txt")
+train_y <- read.table("./UCI HAR Dataset/train/y_train.txt")
 subject_train <- read.table("./UCI HAR Dataset/train/subject_train.txt")
 
-names(X_train) = features
+names(test_x) = features
+names(train_x) = features
 
-# Mean and St Dev for each measure
-X_train = X_train[,extract_features]
-
-# Load activity data
-y_train[,2] = activity_labels[y_train[,1]]
-names(y_train) = c("Activity_ID", "Activity_Label")
+# Load Labels & Activities
+test_y[,2] = activity_labels[test_y[,1]]
+names(test_y) = c("Activity_ID", "Activity_Label")
+names(subject_test) = "subject"
+train_y[,2] = activity_labels[train_y[,1]]
+names(train_y) = c("Activity_ID", "Activity_Label")
 names(subject_train) = "subject"
 
-train_data <- cbind(as.data.table(subject_train), y_train, X_train)
+test_data <- cbind(as.data.table(subject_test), test_y, test_x)
+train_data <- cbind(as.data.table(subject_train), train_y, train_x)
+
+# Mean and St Dev for each measure
+test_x = test_x[,extract_features]
+train_x = train_x[,extract_features]
 
 # Merge data
 data = rbind(test_data, train_data)
