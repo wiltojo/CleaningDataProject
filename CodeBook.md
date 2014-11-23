@@ -1,6 +1,6 @@
 # Codebook
 
-This explains how the variables work and the "ETL"
+This explains how the code work and the "ETL"
 
 ## Data Set
 
